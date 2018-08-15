@@ -1,0 +1,21 @@
+{
+    "name": "book-city",
+    "version": "1.0.0",
+    "description": "Book-City",
+    "main": "gulpfile.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "gulp dev",
+        "build": "gulp build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/xrr0511/Book-City.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/xrr0511/Book-City/issues"
+    },
+    "homepage": "https://github.com/xrr0511/Book-City#readme"
+}

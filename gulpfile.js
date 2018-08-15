@@ -5,7 +5,7 @@ let path = require('path');
 let url = require('url');
 let scss = require('gulp-sass');
 let autoprefixer = require('gulp-autoprefixer');
-
+let mock = require('./mock');
 //起服务
 gulp.task('server', function() {
     return gulp.src('src')
@@ -20,15 +20,8 @@ gulp.task('server', function() {
                 }
 
 
-                if (pathname === '/api/list') {
-                    res.end(JSON.stringify({ code: 1, data: list }))
-                } else if (pathname === '/api/detail') {
-                    let id = url.parse(req.url, true).query.id;
-                    let target = detail.filter((item) => {
-                        return item.id == id;
-                    })
-
-                    res.end(JSON.stringify({ code: 1, data: target[0] }))
+                if (/^\/api/.test(pathname)) {
+                    res.end(JSON.stringify({ code: 1, data: mock(req.url) }))
                 } else {
                     pathname = /\.js|\.css|\.html$/.test(pathname) ? pathname : 'index.html';
                     res.end(fs.readFileSync(path.join(__dirname, 'src', pathname)))
